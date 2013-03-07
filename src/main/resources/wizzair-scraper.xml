@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://web-harvest.sourceforge.net/schema/2.1/core">
+    <var-def name="aspnetViewstate">
+        <xpath expression="//form[@id='SkySales']/input[@name='viewState']/@value">
+            <html-to-xml>
+                <http url="http://wizzair.com/en-GB/Search"/>
+            </html-to-xml>
+        </xpath>
+    </var-def>
+
+    <empty>
+        <http url="http://wizzair.com/en-GB/travel_services/Reserved_Seat/"/>
+    </empty>
+
+    <file action="write" path="/tmp/search-saved1.html">
+        <xpath expression="//label[span[@class='flight-date']/@data-flight-departure='2013-04-29T13:35:00']//span[@class='flight-fare-wizzclub sub']/span[@class='price']/text()">
+            <html-to-xml>
+                <http url="http://wizzair.com/en-GB/Search" method="post">
+                    <http-header name="Origin">http://wizzair.com</http-header>
+                    <http-header name="Referer">http://wizzair.com/uk-UA/Select</http-header>
+                    <http-header name="User-Agent">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like
+                        Gecko) Chrome/25.0.1364.97 Safari/537.22
+                    </http-header>
+
+                    <http-param name="__EVENTTARGET">
+                        ControlGroupRibbonAnonHomeView_AvailabilitySearchInputRibbonAnonHomeView_ButtonSubmit
+                    </http-param>
+                    <http-param name="__VIEWSTATE">
+                        <template>${aspnetViewstate}</template>
+                    </http-param>
+
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$OriginStation">
+                        IEV
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$DestinationStation">
+                        BUD
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$DepartureDate">
+                        29/04/2013
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$ReturnDate">
+                        06/05/2013
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$PaxCountADT">
+                        1
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$PaxCountCHD">
+                        0
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$PaxCountINFANT">
+                        0
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$WizzFlightSearchInput2_COUNTRIES">
+                        GB
+                    </http-param>
+                    <http-param
+                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$ButtonSubmit">
+                        Search
+                    </http-param>
+                </http>
+            </html-to-xml>
+        </xpath>
+    </file>
+</config>
