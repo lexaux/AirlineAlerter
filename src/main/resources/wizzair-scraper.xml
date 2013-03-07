@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://web-harvest.sourceforge.net/schema/2.1/core">
-    <var-def name="aspnetViewstate">
+    <def var="aspnetViewstate">
         <xpath expression="//form[@id='SkySales']/input[@name='viewState']/@value">
             <html-to-xml>
                 <http url="http://wizzair.com/en-GB/Search"/>
             </html-to-xml>
         </xpath>
-    </var-def>
+    </def>
 
-    <empty>
-        <http url="http://wizzair.com/en-GB/travel_services/Reserved_Seat/"/>
-    </empty>
-
-    <file action="write" path="/tmp/search-saved1.html">
+    <def var="price">
         <xpath expression="//label[span[@class='flight-date']/@data-flight-departure='2013-04-29T13:35:00']//span[@class='flight-fare-wizzclub sub']/span[@class='price']/text()">
             <html-to-xml>
                 <http url="http://wizzair.com/en-GB/Search" method="post">
@@ -68,5 +64,5 @@
                 </http>
             </html-to-xml>
         </xpath>
-    </file>
+    </def>
 </config>
