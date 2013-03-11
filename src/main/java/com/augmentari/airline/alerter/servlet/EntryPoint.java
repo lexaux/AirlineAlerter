@@ -77,6 +77,7 @@ public class EntryPoint implements ServletContextListener
             String config = IOUtils.toString(getClass().getResourceAsStream("/wizzair-scraper.xml"));
             configSource = configSourceFactory.create(config);
 
+            LOGGER.info("Invoking scrapper!");
         } catch (Exception e)
         {
             LOGGER.error("Could not initialize web scraper. ", e);

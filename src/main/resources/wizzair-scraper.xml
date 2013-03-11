@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://web-harvest.sourceforge.net/schema/2.1/core">
+
     <def var="aspnetViewstate">
         <xpath expression="//form[@id='SkySales']/input[@name='viewState']/@value">
             <html-to-xml>
@@ -13,10 +14,8 @@
             <html-to-xml>
                 <http url="http://wizzair.com/en-GB/Search" method="post">
                     <http-header name="Origin">http://wizzair.com</http-header>
-                    <http-header name="Referer">http://wizzair.com/uk-UA/Select</http-header>
-                    <http-header name="User-Agent">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like
-                        Gecko) Chrome/25.0.1364.97 Safari/537.22
-                    </http-header>
+                    <http-header name="Referer">http://wizzair.com/en-GB/Select</http-header>
+                    <http-header name="User-Agent">Mozilla/5.0 (X11; Linux x86_64)</http-header>
 
                     <http-param name="__EVENTTARGET">
                         ControlGroupRibbonAnonHomeView_AvailabilitySearchInputRibbonAnonHomeView_ButtonSubmit

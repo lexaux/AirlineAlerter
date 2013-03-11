@@ -20,7 +20,7 @@ public class ScraperTimerTask extends TimerTask
     @Override
     public void run()
     {
-        LOGGER.info("Invoking scrapper!");
+        LOGGER.info("Running scraper task.");
 
         try
         {
@@ -53,6 +53,5 @@ public class ScraperTimerTask extends TimerTask
         {
             LOGGER.error("Error accessing Wizzair", e);
         }
-
     }
 }
