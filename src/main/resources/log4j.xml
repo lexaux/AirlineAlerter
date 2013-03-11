@@ -9,7 +9,7 @@
         </layout>
     </appender>
     <appender name="file-betting" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="${catalina.home}/logs/betting.log"/>
+        <param name="File" value="${catalina.home}/logs/wizzair.log"/>
         <param name="Append" value="true"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
         <layout class="org.apache.log4j.PatternLayout">
