@@ -36,7 +36,7 @@ public class ScraperTimerTask extends TimerTask
             DynamicScopeContext context = harvester.execute(new Harvester.ContextInitCallback()
             {
                 @Override
-                public void onSuccess(DynamicScopeContext context)
+                public void onContextInitSuccess(DynamicScopeContext context)
                 {
                     LOGGER.info("Harvester initialization successful.");
                 }

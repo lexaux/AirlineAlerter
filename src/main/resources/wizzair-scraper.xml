@@ -10,7 +10,7 @@
     </def>
 
     <def var="price">
-        <xpath expression="//label[span[@class='flight-date']/@data-flight-departure='2013-04-29T13:35:00']//span[@class='flight-fare-wizzclub sub']/span[@class='price']/text()">
+        <xpath expression="//label[span[@class='flight-date'and starts-with(@data-flight-departure,'2013-04-29')]]//span[@class='flight-fare-wizzclub sub']/span[@class='price']/text()">
             <html-to-xml>
                 <http url="http://wizzair.com/en-GB/Search" method="post">
                     <http-header name="Origin">http://wizzair.com</http-header>
