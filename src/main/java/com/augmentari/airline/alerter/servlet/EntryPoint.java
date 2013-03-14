@@ -22,7 +22,7 @@ import java.util.Timer;
 
 public class EntryPoint implements ServletContextListener
 {
-    public static final int WIZZAIR_UPDATE_PERIOD = 3 * 60 * 60 * 1000; //every 3 hours do query wizzair
+    public static final int WIZZAIR_UPDATE_PERIOD = 1 * 60 * 60 * 1000; //every 1 hours do query wizzair
     private static final Logger LOGGER = LoggerFactory.getLogger(EntryPoint.class);
     public static Harvest harvest;
     public static ConfigSource configSource;

@@ -26,19 +26,17 @@
 
                     <http-param
                             name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$OriginStation">
-                        IEV
+                        <template>${fromAirport}</template>
                     </http-param>
                     <http-param
                             name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$DestinationStation">
-                        BUD
+                        <template>${toAirport}</template>
                     </http-param>
                     <http-param
                             name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$DepartureDate">
-                        29/04/2013
-                    </http-param>
-                    <http-param
-                            name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$ReturnDate">
-                        06/05/2013
+                        <template>
+                            ${targetDateSlashes}
+                        </template>
                     </http-param>
                     <http-param
                             name="ControlGroupRibbonAnonHomeView$AvailabilitySearchInputRibbonAnonHomeView$PaxCountADT">

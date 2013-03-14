@@ -9,6 +9,9 @@ import org.webharvest.definition.IElementDef;
 import org.webharvest.runtime.DynamicScopeContext;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimerTask;
@@ -38,10 +41,22 @@ public class ScraperTimerTask extends TimerTask
                 @Override
                 public void onContextInitSuccess(DynamicScopeContext context)
                 {
+                    Calendar c = Calendar.getInstance();
+                    c.set(Calendar.YEAR, 2013);
+                    c.set(Calendar.MONTH, 03);
+                    c.set(Calendar.DATE, 29);
+
+                    Date targetDate = c.getTime();
+                    DateFormat dashedFormat = new SimpleDateFormat("YYYY-MM-dd");
+                    DateFormat slashFormat = new SimpleDateFormat("dd/MM/YYYY");
+                    context.setLocalVar("targetDateDashed", dashedFormat.format(targetDate));
+                    context.setLocalVar("targetDateSlashes", slashFormat.format(targetDate));
+
+                    context.setLocalVar("fromAirport", "IEV");
+                    context.setLocalVar("toAirport", "BUD");
                     LOGGER.info("Harvester initialization successful.");
                 }
             });
-
 
             String price = context.getVar("price").toString();
             Date when = new Date();
