@@ -39,7 +39,7 @@
 
         $(document).ready(function () {
             var request = $.ajax({
-                url: "/data.jsp"
+                url: "data.jsp"
             });
             request.done(function (d) {
                 var ret = $.map(d, function (element, index) {

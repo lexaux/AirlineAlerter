@@ -17,12 +17,7 @@
     while (cursor.hasNext())
     {
         DBObject obj = cursor.next();
-        String stringPrice = obj.get("price").toString();
-        float price = 0;
-        if (stringPrice != null && !stringPrice.isEmpty())
-        {
-            price = Float.valueOf(obj.get("price").toString().substring(3));
-        }
+        Long price = (Long) obj.get("price");
 
         Date date = (Date) obj.get("recording_date");
         DateTime dt = new DateTime(date);

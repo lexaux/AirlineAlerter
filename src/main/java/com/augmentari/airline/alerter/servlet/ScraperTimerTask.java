@@ -20,6 +20,11 @@ public class ScraperTimerTask extends TimerTask
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ScraperTimerTask.class);
 
+    public static long parseHryvnias(String price)
+    {
+        return Long.valueOf(price.substring(3).replaceAll(",", "").replaceAll("\\.", "")) / 100;
+    }
+
     @Override
     public void run()
     {
@@ -58,10 +63,11 @@ public class ScraperTimerTask extends TimerTask
                 }
             });
 
-            String price = context.getVar("price").toString();
+            long hryvnias = parseHryvnias(context.getVar("price").toString());
+
             Date when = new Date();
 
-            BasicDBObject recording = new BasicDBObject("recording_date", when).append("price", price);
+            BasicDBObject recording = new BasicDBObject("recording_date", when).append("price", hryvnias);
             EntryPoint.getDB().getCollection("wizzair").insert(recording);
 
         } catch (IOException e)
