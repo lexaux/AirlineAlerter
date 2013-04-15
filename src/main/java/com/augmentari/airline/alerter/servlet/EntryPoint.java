@@ -115,4 +115,7 @@ public class EntryPoint implements ServletContextListener
             throw new IllegalStateException("No connection to the database - can not proceed.", e);
         }
     }
+
+
 }
+

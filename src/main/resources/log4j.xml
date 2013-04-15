@@ -23,4 +23,11 @@
         <appender-ref ref="file-betting"/>
     </root>
 
+    <logger name="org.webharvest">
+        <level value="TRACE"/>
+    </logger>
+    <logger name="org.apache.commons.httpclient">
+        <level value="TRACE"/>
+    </logger>
+
 </log4j:configuration>
